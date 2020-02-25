@@ -16,14 +16,18 @@ public class HomePageWebElements {
     @FindBy(how = How.ID,using = "twotabsearchtextbox") WebElement searchItem;
     @FindBy(how = How.CLASS_NAME,using = "a-size-medium a-color-base a-text-normal") WebElement firstItem;
     @FindBy(how = How.ID,using = "add-to-cart-button") WebElement addToCartBtn;
+    @FindBy(how = How.ID,using = "attach-close_sideSheet-link") WebElement closeSideSheetBtn;
     public HomePageWebElements(WebDriver driver){
         this.driver=driver;
     }
 
-    public void addItem(){
+    public void addItem() throws InterruptedException {
         todaysDealsLink.click();
         driver.findElement(By.cssSelector("#\\31 00_dealView_0 #dealImage .a-row:nth-child(2)")).click();
         driver.findElement(By.cssSelector(".a-list-normal:nth-child(1) .a-truncate-cut")).click();
         addToCartBtn.click();
+        Thread.sleep(30000);
+        if (closeSideSheetBtn.isDisplayed())
+            closeSideSheetBtn.click();
     }
 }

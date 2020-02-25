@@ -23,7 +23,7 @@ public class BaseTest {
 
     }
 
-    @Test(description = "Successful login")
+    @Test(description = "Successful login",priority = 1)
     public void loginTest() throws InterruptedException {
 
         //go to Amazon main page
@@ -34,7 +34,7 @@ public class BaseTest {
         loginElements.loginMethod("john.ervin.reyes@gmail.com", "123456");
     }
 
-    @Test(description = "Place order successfully")
+    @Test(description = "Place order successfully",priority = 2)
     public void placeOrderTest() throws InterruptedException {
 
         HomePageWebElements addItemElements = PageFactory.initElements(driver, HomePageWebElements.class);
@@ -42,14 +42,14 @@ public class BaseTest {
 
     }
 
-    @Test(description = "Checkout item")
+    @Test(description = "Checkout item",priority = 3)
     public void checkoutItemTest() throws InterruptedException {
         //checkout
         CheckoutPageWebElements checkout = PageFactory.initElements(driver, CheckoutPageWebElements.class);
         checkout.checkoutItems();
     }
 
-    @Test(description = "Add credit card details")
+    @Test(description = "Add credit card details",priority = 4)
     public void addCreditCardDetailsTest() throws InterruptedException {
 
         //add payment method
@@ -58,7 +58,7 @@ public class BaseTest {
 
     }
 
-    @Test(description = "Logout")
+    @Test(description = "Logout",priority = 5)
     public void logoutTest() throws InterruptedException {
 
         //add payment method
@@ -67,8 +67,8 @@ public class BaseTest {
 
     }
 
-    @Test(description = "Failed test due to invalid credentials")
-    public void loginFailedTest() throws InterruptedException {
+    @Test(description = "Failed test due to invalid credentials",priority = 6)
+    public void loginTestFailed() throws InterruptedException {
 
         //go to Amazon main page
         driver.get("https://www.amazon.com/");

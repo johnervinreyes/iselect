@@ -9,7 +9,8 @@ import org.openqa.selenium.support.How;
 public class CheckoutPageWebElements {
 
     WebDriver driver = null;
-    @FindBy(how = How.CSS,using = "#attach-sidesheet-checkout-button .a-button-input") WebElement proceedToCheckoutBtn;
+    @FindBy(how = How.ID,using = "nav-cart") WebElement navCartBtn;
+    @FindBy(how = How.NAME,using = "proceedToRetailCheckout") WebElement proceedToCheckoutBtn;
     @FindBy(how = How.ID,using = "ap_password") WebElement passWord;
     @FindBy(how = How.CLASS_NAME,using = "a-declarative a-button-text") WebElement deliverToAddressBtn;
     @FindBy(how = How.CLASS_NAME,using = "a-button-text") WebElement continueBtn;
@@ -19,6 +20,7 @@ public class CheckoutPageWebElements {
     }
 
     public void checkoutItems(){
+        navCartBtn.click();
         proceedToCheckoutBtn.click();
         passWord.sendKeys("123456");
         passWord.sendKeys(Keys.RETURN);
